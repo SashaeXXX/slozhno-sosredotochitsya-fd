@@ -10,6 +10,7 @@
   background-size: cover; 
   background-attachment: fixed;
   overflow-x: hidden; 
+  min-width: 1024px;
 } 
  
 .header { 
@@ -19,12 +20,12 @@
   display: grid; 
   position: relative; 
   grid-template-rows: 1fr min-content 1fr; 
-} 
+}
  
 .header__theme-menu-list { 
   display: flex; 
   justify-content: center; 
-  gap: 10px; 
+  gap: 10px;
 } 
  
 .header__theme-menu-button { 
@@ -65,7 +66,7 @@
   text-align: center; 
   padding-right: 8px; 
   text-transform: uppercase; 
-  margin: 20px; 
+  margin: 20px;
 } 
  
 .decorative__element::after { 
@@ -79,10 +80,6 @@
   filter: drop-shadow(0px 0px 4px var(--accent-color)); 
 } 
  
-.frame {
-  width: 100vw;
-}
-
 .frame::before { 
   position: absolute; 
   top: 0; 
@@ -135,7 +132,7 @@
 } 
  
 .section__title { 
-  color: var(--btn-color); 
+  color: var(--accent-color); 
   font-weight: 700; 
   font-size: var(--font-size); 
 } 
@@ -181,7 +178,6 @@
  
 .section-why { 
   display: grid;
-  width: 100vw; 
   grid-template-columns: 1fr 2fr; 
   gap: 20px; 
 } 
@@ -218,7 +214,6 @@
 }
  
 .section-advices {
-  width: 100vw; 
   display: grid; 
   grid-template-columns: 1fr 2fr; 
   gap: 20px;
@@ -247,7 +242,6 @@
 .section-gallery { 
   padding-block-end: 60px;
   margin-top: -40px;
-  width: 100vw; 
 } 
  
 .section-gallery .section__title { 
@@ -293,6 +287,8 @@
 } 
  
 .footer {
+  block-size: 100vh;
+  max-height: 768px; 
   padding: 20px; 
   position: relative; 
   display: flex; 
@@ -305,10 +301,15 @@
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
   color: var(--title-color); 
   font-weight: 700; 
-  line-height: 82.5%; 
+  line-height: 82.5%;
 } 
  
 @media (width < 1024px) { 
+  .page {
+    min-width: unset;
+    min-width: 768px;
+  }
+
   .header {
     max-height: unset;
     min-height: 1024px;
@@ -350,10 +351,6 @@
     min-width: unset;
     max-width: 472px;
   }
-
-  .section-causes {
-    width: 100vw;
-  }
  
   .section-advices {
     grid-template-columns: 1fr 2fr; 
@@ -369,9 +366,18 @@
   .advice-article {
     max-width: 472px;
   }
+
+  .footer {
+    min-height: 1024px;
+  }
 } 
  
-@media (width < 768px) { 
+@media (width < 768px) {
+  .page  {
+    min-width: unset;
+    max-width: unset;
+    min-width: 375px;
+  } 
   .header {
     min-height: unset;
     max-height: 668px;
@@ -398,7 +404,6 @@
   } 
  
   .section-causes { 
-    width: 100vw;
     padding-block-start: 50px; 
     padding-block-end: 50px;
     margin-top: -40px; 
@@ -430,7 +435,9 @@
   } 
  
   .footer { 
-    padding: 10px; 
+    padding: 10px;
+    min-height: unset;
+    max-height: 668px; 
   } 
  
   .footer__title { 
